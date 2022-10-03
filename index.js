@@ -1,4 +1,4 @@
-import { print } from './js/lib.js';
+import { print } from "./js/lib.js";
 /* Refer to https://github.com/OleksiyRudenko/a-tiny-JS-world for the task details
    Complete the below for code reviewers' convenience:
 
@@ -8,7 +8,74 @@ import { print } from './js/lib.js';
 
 // ======== OBJECTS DEFINITIONS ========
 // Define your objects here
+const dog = {
+  species: "dog",
+  name: "Toby",
+  gender: "male",
+  legs: 4,
+  hands: 0,
+  saying: "woof-woof!",
+  friends: "Marie",
+};
 
+const cat = {
+  species: "cat",
+  name: "Murka",
+  gender: "female",
+  legs: 4,
+  hands: 0,
+  saying: "meowwwwwww!",
+  friends: 'Cate',
+}
+
+/* const cat = {
+  species: "cat",
+  name: "Murka",
+  gender: "female",
+  legs: 4,
+  hands: 0,
+  saying: "meowwwwwww!",
+  friends: 'Cate',
+}; */
+
+const woman = {
+  species: "human",
+  name: "Marie",
+  gender: "female",
+  legs: 2,
+  hands: 2,
+  saying: "Hello,Kottans!",
+  friends: "Toby, Jack, Cate",
+};
+
+const man = {
+  species: "human",
+  name: "Jack",
+  gender: "male",
+  legs: 2,
+  hands: 2,
+  saying: "I am happy!",
+  friends: "Marie, Cate",
+};
+
+const catWoman = Object.create(cat);
+
+catWoman.species = "cat-woman";
+catWoman.name = "Cate";
+catWoman.gender = "female";
+catWoman.friends = "Marie, Murka, Jack";
+
+/*const catWoman = {
+  species: "cat-woman",
+  name: "Cate",
+  gender: "female",
+  legs: 2,
+  hands: 2,
+  saying: cat.saying,
+  friends: "Marie, Murka, Jack",
+}; */
+
+let inhabitants = [cat, dog, woman, man, catWoman];
 
 // ======== OUTPUT ========
 /* Use print(message) for output.
@@ -19,12 +86,8 @@ import { print } from './js/lib.js';
    so code reviewers might focus on a single file that is index.js.
    */
 
-/* Print examples:
-   print('ABC');
-   print('<strong>ABC</strong>');
-   print('<strong>ABC</strong>', 'div');
+function printInhabitants(elements) {
+  elements.forEach((element) => print(Object.values(element).join("; ")));
+}
 
-   print('human; John; male; 2; 2; Hello world!; Rex, Tom, Jenny');
-   print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny');
-   print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny', 'div');
-   */
+printInhabitants(inhabitants);
